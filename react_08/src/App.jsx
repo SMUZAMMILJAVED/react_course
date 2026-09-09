@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,7 +6,18 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let ref=useRef(0)
+  let c = useRef()
+  let a=0;
+useEffect(()=>{
+  ref.current=ref.current+1
+  a=a+1
+  console.log("rerender...",a)
+  console.log("rerender...",ref.current)
+})
+useEffect(()=>{
+  c.current.style.backgroundColor='red'
+},[])
   return (
     <>
       <section id="center">
@@ -22,6 +33,7 @@ function App() {
           </p>
         </div>
         <button
+        ref={c}
           type="button"
           className="counter"
           onClick={() => setCount((count) => count + 1)}

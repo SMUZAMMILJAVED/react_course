@@ -14,6 +14,14 @@ const App = () => {
   const result =useMemo(()=>{
    return  complexCal()
   },[])
+
+ const sayHello=()=>{
+console.log("hello")
+  }
+  const f=useMemo(()=>{
+    return sayHello()},[])
+
+    
   return (
     <div>
       <h1>Counter is {count}</h1>
